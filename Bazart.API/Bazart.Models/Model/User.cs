@@ -1,5 +1,4 @@
-﻿using Bazart.Models.Model;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace Bazart.Models.Model
 {

@@ -1,6 +1,4 @@
-﻿using Bazart.Models.Model;
-
-namespace Bazart.Models.Models
+﻿namespace Bazart.Models.Model
 {
     public class Event
     {

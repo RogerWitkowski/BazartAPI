@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.DataAccess", "Bazart
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.Models", "Bazart.Models\Bazart.Models.csproj", "{ED397CC0-4FE6-4F1C-930F-D24431EC226B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.EmailService", "Bazart.EmailService\Bazart.EmailService.csproj", "{66FEE6CB-821E-4278-B798-D514F78FB87A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ED397CC0-4FE6-4F1C-930F-D24431EC226B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED397CC0-4FE6-4F1C-930F-D24431EC226B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED397CC0-4FE6-4F1C-930F-D24431EC226B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66FEE6CB-821E-4278-B798-D514F78FB87A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66FEE6CB-821E-4278-B798-D514F78FB87A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66FEE6CB-821E-4278-B798-D514F78FB87A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66FEE6CB-821E-4278-B798-D514F78FB87A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

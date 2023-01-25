@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.API", "Bazart.API\Ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.DataAccess", "Bazart.DataAccess\Bazart.DataAccess.csproj", "{6F9A6259-7E0F-4AF0-BD99-43AD5AB3E3E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.Models", "Bazart.Models\Bazart.Models.csproj", "{ED397CC0-4FE6-4F1C-930F-D24431EC226B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6F9A6259-7E0F-4AF0-BD99-43AD5AB3E3E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F9A6259-7E0F-4AF0-BD99-43AD5AB3E3E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F9A6259-7E0F-4AF0-BD99-43AD5AB3E3E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED397CC0-4FE6-4F1C-930F-D24431EC226B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED397CC0-4FE6-4F1C-930F-D24431EC226B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED397CC0-4FE6-4F1C-930F-D24431EC226B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED397CC0-4FE6-4F1C-930F-D24431EC226B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

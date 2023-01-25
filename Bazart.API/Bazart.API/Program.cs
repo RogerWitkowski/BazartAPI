@@ -1,6 +1,15 @@
+using Bazart.DataAccess.DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+var connectionString = builder.Configuration["DatabaseConnection"];
+builder.Services.AddDbContext<BazartDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString(connectionString));
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

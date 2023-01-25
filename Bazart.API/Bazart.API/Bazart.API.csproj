@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>994b0b21-6252-4070-8337-88b3f9ec57c0</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +28,10 @@
     <PackageReference Include="NLog.Web.AspNetCore" Version="5.2.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bazart.DataAccess\Bazart.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,8 @@
 using System.Reflection;
 using System.Text.Json.Serialization;
 using Bazart.API.Middleware;
+using Bazart.API.Repository.IRepository;
+using Bazart.API.Repository;
 using Bazart.DataAccess.DataAccess;
 using Bazart.DataAccess.Seeder;
 using Bazart.Models.Model;
@@ -21,6 +23,8 @@ builder.Services.AddDbContext<BazartDbContext>(options =>
 
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<RequestTimeMiddleware>();
+//!Repository registered area
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.AddScoped<DataGenerator>();
 

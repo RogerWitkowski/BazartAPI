@@ -1,4 +1,5 @@
-﻿using Bazart.Models.Dto.ProductDto;
+﻿using Bazart.API.Repository.IRepository;
+using Bazart.Models.Dto.ProductDto;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 

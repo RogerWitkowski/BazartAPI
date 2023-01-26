@@ -3,13 +3,14 @@ using Bazart.DataAccess.DataAccess;
 using Bazart.DataAccess.Seeder;
 using Bazart.Models.Model;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Host.UseNLog();
 
 builder.Services.AddDbContext<BazartDbContext>(options =>
 {

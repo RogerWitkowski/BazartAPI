@@ -12,9 +12,9 @@ namespace Bazart.EmailService.EmailService
 {
     public class EmailService : IEmailService.IEmailService
     {
-        private readonly IOptions<EmailSendingSettingModel> _emailSettings;
+        private readonly IOptions<EmailSendingSettingsModel> _emailSettings;
 
-        public EmailService(IOptions<EmailSendingSettingModel> emailSettings)
+        public EmailService(IOptions<EmailSendingSettingsModel> emailSettings)
         {
             _emailSettings = emailSettings;
         }

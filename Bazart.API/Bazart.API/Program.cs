@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using Bazart.API.Middleware;
 using Bazart.API.Repository.IRepository;
 using Bazart.API.Repository;
+using Bazart.API.Repository.Bazart.API.Repository;
 using Bazart.DataAccess.DataAccess;
 using Bazart.DataAccess.Seeder;
 using Bazart.Models.Model;
@@ -25,6 +26,7 @@ builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<RequestTimeMiddleware>();
 //!Repository registered area
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IItemsRepository, ItemsRepository>();
 
 builder.Services.AddScoped<DataGenerator>();
 

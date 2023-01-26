@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bazart.DataAccess\Bazart.DataAccess.csproj" />
+    <ProjectReference Include="..\Bazart.EmailService\Bazart.EmailService.csproj" />
   </ItemGroup>
 
 </Project>

@@ -10,6 +10,9 @@ using Bazart.Models.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NLog.Web;
+using Bazart.EmailService.SettingModel;
+using Bazart.EmailService.EmailService.IEmailService;
+using Bazart.EmailService.EmailService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -60,7 +63,10 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     options.JsonSerializerOptions.WriteIndented = true;
 }).AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore).AddXmlDataContractSerializerFormatters();
-
+//!EmailSendingSettingsModel registered
+builder.Services.Configure<EmailSendingSettingsModel>(builder.Configuration.GetSection("MailGun"));
+//!EmailSender registered
+builder.Services.AddSingleton<IEmailService, EmailService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

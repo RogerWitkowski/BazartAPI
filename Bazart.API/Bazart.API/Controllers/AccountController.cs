@@ -3,6 +3,7 @@ using Bazart.Models.Dto.EmailDto;
 using Bazart.Models.Dto.UserDto;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using Bazart.API.Repository.IRepository;
 
 namespace Bazart.API.Controllers
 {

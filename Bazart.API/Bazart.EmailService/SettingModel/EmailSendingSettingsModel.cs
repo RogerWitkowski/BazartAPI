@@ -1,6 +1,6 @@
 ﻿namespace Bazart.EmailService.SettingModel
 {
-    public class EmailSendingSettingModel
+    public class EmailSendingSettingsModel
     {
         public string Host { get; set; }
         public string User { get; set; }

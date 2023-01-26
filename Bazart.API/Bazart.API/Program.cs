@@ -56,9 +56,22 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//!CORS policy created
+var allowedOrigin = builder.Configuration.GetSection("AllowedOrigins:ReactFrontOrigin").Value;
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("FrontendClient", policy => policy
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .WithOrigins(origins: allowedOrigin)
+        .AllowCredentials());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+//!add CORS policy
+app.UseCors(policyName: "FrontendClient");
 
 using (var scope = app.Services.CreateAsyncScope())
 {

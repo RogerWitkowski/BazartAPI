@@ -1,4 +1,4 @@
-﻿using Bazart.Models.Model;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bazart.Models.Model
 {
@@ -7,7 +7,9 @@ namespace Bazart.Models.Model
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+
         public decimal Price { get; set; }
+
         public bool IsForSell { get; set; }
         public string ImageUrl { get; set; }
         public string CreatedById { get; set; }

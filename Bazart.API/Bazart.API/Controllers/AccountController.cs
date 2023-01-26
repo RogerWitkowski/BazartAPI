@@ -4,6 +4,7 @@ using Bazart.Models.Dto.UserDto;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using Bazart.API.Repository.IRepository;
+using Bazart.EmailService.EmailService.IEmailService;
 
 namespace Bazart.API.Controllers
 {

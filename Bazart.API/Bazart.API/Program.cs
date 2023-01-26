@@ -1,5 +1,6 @@
 using System.Reflection;
 using Bazart.DataAccess.DataAccess;
+using Bazart.DataAccess.Seeder;
 using Bazart.Models.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
@@ -15,6 +16,8 @@ builder.Services.AddDbContext<BazartDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection"));
 });
 
+builder.Services.AddScoped<DataGenerator>();
+
 builder.Services.AddIdentity<User, IdentityRole>(options =>
     {
         options.User.AllowedUserNameCharacters = default;
@@ -29,6 +32,12 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+using (var scope = app.Services.CreateAsyncScope())
+{
+    var dataGenerator = scope.ServiceProvider.GetService<DataGenerator>();
+    dataGenerator.GenerateData().GetAwaiter().GetResult();
+}
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

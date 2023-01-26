@@ -23,6 +23,8 @@ builder.Services.AddScoped<RequestTimeMiddleware>();
 
 builder.Services.AddScoped<DataGenerator>();
 
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
 builder.Services.AddIdentity<User, IdentityRole>(options =>
     {
         options.User.AllowedUserNameCharacters = default;

@@ -27,6 +27,7 @@ builder.Services.AddScoped<RequestTimeMiddleware>();
 //!Repository registered area
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IItemsRepository, ItemsRepository>();
+builder.Services.AddScoped<IEventRepository, EventRepository>();
 
 builder.Services.AddScoped<DataGenerator>();
 

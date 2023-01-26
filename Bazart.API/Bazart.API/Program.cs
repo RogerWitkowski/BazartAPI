@@ -1,4 +1,5 @@
 using System.Reflection;
+using Bazart.API.Middleware;
 using Bazart.DataAccess.DataAccess;
 using Bazart.DataAccess.Seeder;
 using Bazart.Models.Model;
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<BazartDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection"));
 });
+
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
 builder.Services.AddScoped<DataGenerator>();
 
@@ -58,6 +61,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 

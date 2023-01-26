@@ -1,4 +1,5 @@
-﻿using Bazart.Models.Dto.EventDto;
+﻿using Bazart.API.Repository.IRepository;
+using Bazart.Models.Dto.EventDto;
 using Bazart.Models.Dto.ProductDto;
 using Microsoft.AspNetCore.Mvc;
 
@@ -46,3 +47,4 @@ namespace Bazart.API.Controllers
             }
         }
     }
+}

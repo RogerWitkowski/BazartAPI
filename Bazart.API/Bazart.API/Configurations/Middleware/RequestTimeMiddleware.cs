@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Bazart.API.Middleware
+namespace Bazart.API.Configurations.Middleware
 {
     public class RequestTimeMiddleware : IMiddleware
     {

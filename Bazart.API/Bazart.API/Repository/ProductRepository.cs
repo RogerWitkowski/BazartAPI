@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using AutoMapper;
-using Bazart.API.Exceptions;
+using Bazart.API.Configurations.Exceptions;
 using Bazart.API.Repository.IRepository;
 using Bazart.DataAccess.DataAccess;
 using Bazart.Models.Dto.ProductDto;

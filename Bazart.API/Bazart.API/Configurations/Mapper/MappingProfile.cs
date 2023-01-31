@@ -5,7 +5,7 @@ using Bazart.Models.Dto.ProductDto;
 using Bazart.Models.Dto.UserDto;
 using Bazart.Models.Model;
 
-namespace Bazart.API
+namespace Bazart.API.Configurations.Mapper
 {
     public class MappingProfile : Profile
     {

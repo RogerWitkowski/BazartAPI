@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Bazart.API.Exceptions;
+using Bazart.API.Configurations.Exceptions;
 using Bazart.API.Repository.IRepository;
 using Bazart.Models.Dto.EmailDto;
 using Bazart.Models.Dto.UserDto;

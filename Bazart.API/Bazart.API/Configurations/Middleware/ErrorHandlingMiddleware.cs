@@ -1,6 +1,6 @@
-﻿using Bazart.API.Exceptions;
+﻿using Bazart.API.Configurations.Exceptions;
 
-namespace Bazart.API.Middleware
+namespace Bazart.API.Configurations.Middleware
 {
     public class ErrorHandlingMiddleware : IMiddleware
     {

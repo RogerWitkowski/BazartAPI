@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using AutoMapper;
-using Bazart.API.Configurations.Exceptions;
-using Bazart.API.Repository.IRepository;
 using Bazart.DataAccess.DataAccess;
 using Bazart.Models.Dto.ProductDto;
 using Bazart.Models.Model;
+using Bazart.Repository.Repository.IRepository;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
-namespace Bazart.API.Repository
+namespace Bazart.Repository.Repository
 {
     public class ProductRepository : IProductRepository
     {
@@ -27,7 +27,7 @@ namespace Bazart.API.Repository
         {
             if (string.IsNullOrEmpty(userId))
             {
-                throw new NotFoundException("User not found");
+                throw new Exception("User not found"); //!NotFound
             }
             var product = await _dbContext
                 .Products
@@ -37,7 +37,7 @@ namespace Bazart.API.Repository
 
             if (product is null)
             {
-                throw new NotFoundException("Sorry! Product not found.");
+                throw new Exception("Sorry! Product not found.");//!NotFound
             }
 
             var productDto = _mapper.Map<ProductDto>(product);
@@ -56,7 +56,7 @@ namespace Bazart.API.Repository
             var productsDto = _mapper.Map<List<ProductDto>>(products);
             if (!productsDto.Any())
             {
-                throw new NotFoundException("Products not found");
+                throw new Exception("Products not found"); //!NotFound
             }
 
             return productsDto;
@@ -70,7 +70,7 @@ namespace Bazart.API.Repository
 
             if (user is null)
             {
-                throw new NotFoundException("User not found");
+                throw new Exception("User not found"); //!NotFound
             }
 
             var product = _mapper.Map<Product>(createProductDto);
@@ -92,7 +92,7 @@ namespace Bazart.API.Repository
 
             if (productToDelete is null)
             {
-                throw new NotFoundException("Sorry! Product not found.");
+                throw new Exception("Sorry! Product not found."); //!NotFound
             }
 
             var categoryToDelete = await Task.FromResult(_dbContext
@@ -102,7 +102,7 @@ namespace Bazart.API.Repository
 
             if (categoryToDelete is null)
             {
-                throw new NotFoundException("Sorry! Product not found.");
+                throw new Exception("Sorry! Product not found."); //!NotFound
             }
 
             await Task.FromResult(_dbContext.Products.Remove(productToDelete));
@@ -119,7 +119,7 @@ namespace Bazart.API.Repository
 
             if (productToUpdate is null)
             {
-                throw new NotFoundException("Sorry! Product not found.");
+                throw new Exception("Sorry! Product not found."); //!NotFound
             }
 
             productToUpdate.Name = updateProductDto.Name;
@@ -142,7 +142,7 @@ namespace Bazart.API.Repository
 
             if (productToUpdate is null)
             {
-                throw new NotFoundException("Sorry! Product not found.");
+                throw new Exception("Sorry! Product not found."); //!NotFound
             }
 
             var map = _mapper.Map<UpdateProductDto>(productToUpdate);

@@ -2,7 +2,7 @@
 using Bazart.Models.Dto.ProductDto;
 using Microsoft.AspNetCore.JsonPatch;
 
-namespace Bazart.API.Repository.IRepository
+namespace Bazart.Repository.Repository.IRepository
 {
     public interface IProductRepository
     {

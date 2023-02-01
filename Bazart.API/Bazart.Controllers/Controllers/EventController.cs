@@ -1,8 +1,8 @@
-﻿using Bazart.API.Repository.IRepository;
-using Bazart.Models.Dto.EventDto;
+﻿using Bazart.Models.Dto.EventDto;
+using Bazart.Repository.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bazart.API.Controllers
+namespace Bazart.Controllers.Controllers
 {
     [ApiController]
     [Route("api/user/{userId}/events")]

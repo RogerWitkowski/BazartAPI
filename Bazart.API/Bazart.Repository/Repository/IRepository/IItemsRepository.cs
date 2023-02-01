@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Bazart.API.Repository.IRepository
+namespace Bazart.Repository.Repository.IRepository
 {
     public interface IItemsRepository
     {

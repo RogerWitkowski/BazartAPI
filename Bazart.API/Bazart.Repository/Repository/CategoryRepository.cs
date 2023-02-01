@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using AutoMapper;
-using Bazart.API.Repository.IRepository;
 using Bazart.DataAccess.DataAccess;
 using Bazart.Models.Dto.CategoryDto;
 using Bazart.Models.Dto.ProductDto;
+using Bazart.Repository.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bazart.API.Repository
+namespace Bazart.Repository.Repository
 {
     public class CategoryRepository : ICategoryRepository
     {

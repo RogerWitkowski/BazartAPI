@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using AutoMapper;
-using Bazart.API.Configurations.Exceptions;
-using Bazart.API.Repository.IRepository;
 using Bazart.DataAccess.DataAccess;
 using Bazart.Models.Dto.EventDto;
 using Bazart.Models.Model;
+using Bazart.Repository.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bazart.API.Repository
+namespace Bazart.Repository.Repository
 {
     public class EventRepository : IEventRepository
     {
@@ -24,7 +23,7 @@ namespace Bazart.API.Repository
         {
             if (string.IsNullOrEmpty(userId))
             {
-                throw new NotFoundException("User not found");
+                throw new Exception("User not found"); //!NotFound
             }
             var events = await _dbContext
                 .Events
@@ -33,7 +32,7 @@ namespace Bazart.API.Repository
                 .FirstOrDefaultAsync(e => e.Id == eventId && e.CreatedById == userId);
             if (events is null)
             {
-                throw new NotFoundException("User not found");
+                throw new Exception("User not found"); //!NotFound
             }
 
             var eventDto = _mapper.Map<EventDto>(events);
@@ -53,7 +52,7 @@ namespace Bazart.API.Repository
 
             if (!eventsDto.Any())
             {
-                throw new NotFoundException("User not found");
+                throw new Exception("User not found"); //!NotFound
             }
             return eventsDto;
         }
@@ -65,7 +64,7 @@ namespace Bazart.API.Repository
                 .FirstOrDefaultAsync(u => u.Id == userId);
             if (user is null)
             {
-                throw new NotFoundException("User not found");
+                throw new Exception("User not found"); //!NotFound
             }
 
             var isCreated = _mapper.Map<Event>(createEventDto);
@@ -89,7 +88,7 @@ namespace Bazart.API.Repository
 
             if (eventToDelete == null)
             {
-                throw new NotFoundException("Not found");
+                throw new Exception("Not found"); //!NotFound
             }
 
             await Task.FromResult(_dbContext.Events.Remove(eventToDelete));
@@ -106,7 +105,7 @@ namespace Bazart.API.Repository
 
             if (eventToUpdate == null)
             {
-                throw new NotFoundException("Not found");
+                throw new Exception("Not found"); //!NotFound
             }
 
             eventToUpdate.Name = updateEventDto.Name;

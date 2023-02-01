@@ -1,9 +1,9 @@
-﻿using Bazart.API.Repository.IRepository;
-using Bazart.Models.Dto.ProductDto;
+﻿using Bazart.Models.Dto.ProductDto;
+using Bazart.Repository.Repository.IRepository;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bazart.API.Controllers
+namespace Bazart.Controllers.Controllers
 {
     [ApiController]
     [Route("api/user/{userId}/products")]

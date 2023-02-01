@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using Bazart.Models.Dto.EventDto;
 
-namespace Bazart.API.Repository.IRepository
+namespace Bazart.Repository.Repository.IRepository
 {
     public interface IEventRepository
     {

@@ -1,12 +1,10 @@
-﻿using Azure.Core;
-using Bazart.Models.Dto.EmailDto;
+﻿using Bazart.Models.Dto.EmailDto;
 using Bazart.Models.Dto.UserDto;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using Bazart.API.Repository.IRepository;
 using Bazart.EmailService.EmailService.IEmailService;
+using Bazart.Repository.Repository.IRepository;
 
-namespace Bazart.API.Controllers
+namespace Bazart.Controllers.Controllers
 {
     [Route("api/account")]
     [ApiController]

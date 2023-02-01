@@ -2,7 +2,7 @@
 using Bazart.Models.Dto.UserDto;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bazart.API.Repository.IRepository
+namespace Bazart.Repository.Repository.IRepository
 {
     public interface IAccountRepository
     {

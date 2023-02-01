@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.API", "Bazart.API\Bazart.API.csproj", "{59FE54F2-699D-40E9-9952-7AA6D050D0A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bazart.API", "Bazart.API\Bazart.API.csproj", "{59FE54F2-699D-40E9-9952-7AA6D050D0A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.DataAccess", "Bazart.DataAccess\Bazart.DataAccess.csproj", "{6F9A6259-7E0F-4AF0-BD99-43AD5AB3E3E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bazart.DataAccess", "Bazart.DataAccess\Bazart.DataAccess.csproj", "{6F9A6259-7E0F-4AF0-BD99-43AD5AB3E3E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.Models", "Bazart.Models\Bazart.Models.csproj", "{ED397CC0-4FE6-4F1C-930F-D24431EC226B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bazart.Models", "Bazart.Models\Bazart.Models.csproj", "{ED397CC0-4FE6-4F1C-930F-D24431EC226B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.EmailService", "Bazart.EmailService\Bazart.EmailService.csproj", "{66FEE6CB-821E-4278-B798-D514F78FB87A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bazart.EmailService", "Bazart.EmailService\Bazart.EmailService.csproj", "{66FEE6CB-821E-4278-B798-D514F78FB87A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bazart.Controllers", "Bazart.Controllers\Bazart.Controllers.csproj", "{0AC26C36-37BB-44C6-B220-346F853CBB12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazart.Repository", "Bazart.Repository\Bazart.Repository.csproj", "{7A81A199-DA43-430D-92B1-3BA0DD492429}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{66FEE6CB-821E-4278-B798-D514F78FB87A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66FEE6CB-821E-4278-B798-D514F78FB87A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66FEE6CB-821E-4278-B798-D514F78FB87A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AC26C36-37BB-44C6-B220-346F853CBB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AC26C36-37BB-44C6-B220-346F853CBB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AC26C36-37BB-44C6-B220-346F853CBB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AC26C36-37BB-44C6-B220-346F853CBB12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A81A199-DA43-430D-92B1-3BA0DD492429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A81A199-DA43-430D-92B1-3BA0DD492429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A81A199-DA43-430D-92B1-3BA0DD492429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A81A199-DA43-430D-92B1-3BA0DD492429}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

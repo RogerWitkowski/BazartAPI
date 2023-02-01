@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
-using Bazart.API.Configurations.Exceptions;
-using Bazart.API.Repository.IRepository;
 using Bazart.Models.Dto.EmailDto;
 using Bazart.Models.Dto.UserDto;
 using Bazart.Models.Model;
+using Bazart.Repository.Repository.IRepository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bazart.API.Repository
+namespace Bazart.Repository.Repository
 {
     public class AccountRepository : IAccountRepository
     {
@@ -37,7 +36,7 @@ namespace Bazart.API.Repository
                 }
             }
 
-            throw new NotFoundException("Wrong password or email.");
+            throw new Exception("Wrong password or email."); //!notfound
         }
 
         public async Task<ActionResult<ConfirmEmailAddressDto>> LoginUserAsync(LoginUserDto loginUserDto)
@@ -52,7 +51,7 @@ namespace Bazart.API.Repository
             {
                 if (result.IsLockedOut)
                 {
-                    throw new BadRequestException("You are locked out.");
+                    throw new Exception("You are locked out."); //!badrequest
                 }
             }
             if (result.IsNotAllowed)
@@ -65,7 +64,7 @@ namespace Bazart.API.Repository
                 }
             }
 
-            throw new BadRequestException("Login failed.");
+            throw new Exception("Login failed."); //!badrequest
         }
 
         public async Task<ActionResult> ConfirmEmailAddressAsync(string userId, string token)
@@ -73,7 +72,7 @@ namespace Bazart.API.Repository
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                throw new BadRequestException("Failed to validate email.");
+                throw new Exception("Failed to validate email."); //!badrequest
             }
 
             var result = await _userManager.ConfirmEmailAsync(user, token);

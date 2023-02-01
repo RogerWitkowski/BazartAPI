@@ -8,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseNLog();
 
+//!controllers added
+builder.Services.AddControllersCollection();
+
 //!dbContext added
 builder.AddDbContext();
 
@@ -15,7 +18,7 @@ builder.AddDbContext();
 builder.AddGlobalErrorHandlers();
 
 //!Repository registered area
-builder.AddRepositories();
+builder.Services.AddRepositories();
 
 //!dataGenerator added
 builder.AddDataGenerator();

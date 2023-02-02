@@ -1,6 +1,8 @@
-﻿using Bazart.API.Configurations.Exceptions;
+﻿using Bazart.ErrorHandlingMiddleware.Exceptions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
-namespace Bazart.API.Configurations.Middleware
+namespace Bazart.ErrorHandlingMiddleware.Middleware
 {
     public class ErrorHandlingMiddleware : IMiddleware
     {

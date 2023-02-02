@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Bazart.ErrorHandlingMiddleware.Exceptions;
 using Bazart.Models.Dto.EmailDto;
 using Bazart.Models.Dto.UserDto;
 using Bazart.Models.Model;
@@ -25,7 +26,7 @@ namespace Bazart.Repository.Repository
         {
             if ((registerUserDto.Password == registerUserDto.ConfirmPassword) && (registerUserDto.Email == registerUserDto.ConfirmEmail))
             {
-                var newUser = _mapper.Map<User>(registerUserDto);
+                User newUser = _mapper.Map<User>(registerUserDto);
 
                 var createdUser = _userManager.CreateAsync(newUser, newUser.PasswordHash).GetAwaiter().GetResult();
 
@@ -36,7 +37,7 @@ namespace Bazart.Repository.Repository
                 }
             }
 
-            throw new Exception("Wrong password or email."); //!notfound
+            throw new NotFoundException("Wrong password or email.");
         }
 
         public async Task<ActionResult<ConfirmEmailAddressDto>> LoginUserAsync(LoginUserDto loginUserDto)
@@ -51,7 +52,7 @@ namespace Bazart.Repository.Repository
             {
                 if (result.IsLockedOut)
                 {
-                    throw new Exception("You are locked out."); //!badrequest
+                    throw new Exception("You are locked out.");
                 }
             }
             if (result.IsNotAllowed)
@@ -64,7 +65,7 @@ namespace Bazart.Repository.Repository
                 }
             }
 
-            throw new Exception("Login failed."); //!badrequest
+            throw new BadRequestException("Login failed.");
         }
 
         public async Task<ActionResult> ConfirmEmailAddressAsync(string userId, string token)
@@ -72,7 +73,7 @@ namespace Bazart.Repository.Repository
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                throw new Exception("Failed to validate email."); //!badrequest
+                throw new BadRequestException("Failed to validate email.");
             }
 
             var result = await _userManager.ConfirmEmailAsync(user, token);

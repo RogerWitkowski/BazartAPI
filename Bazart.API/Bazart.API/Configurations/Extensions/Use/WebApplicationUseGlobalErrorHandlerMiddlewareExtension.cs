@@ -1,4 +1,4 @@
-﻿using Bazart.API.Configurations.Middleware;
+﻿using Bazart.ErrorHandlingMiddleware.Middleware;
 
 namespace Bazart.API.Configurations.Extensions.Use
 {
@@ -6,7 +6,7 @@ namespace Bazart.API.Configurations.Extensions.Use
     {
         internal static WebApplication UseGlobalErrorHandlersMiddleware(this WebApplication app)
         {
-            app.UseMiddleware<ErrorHandlingMiddleware>();
+            app.UseMiddleware<ErrorHandlingMiddleware.Middleware.ErrorHandlingMiddleware>();
             app.UseMiddleware<RequestTimeMiddleware>();
             return app;
         }

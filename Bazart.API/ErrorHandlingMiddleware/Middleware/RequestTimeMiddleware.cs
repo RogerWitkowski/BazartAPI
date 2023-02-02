@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
-namespace Bazart.API.Configurations.Middleware
+namespace Bazart.ErrorHandlingMiddleware.Middleware
 {
     public class RequestTimeMiddleware : IMiddleware
     {

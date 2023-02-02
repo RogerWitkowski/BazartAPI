@@ -1,4 +1,4 @@
-﻿namespace Bazart.API.Configurations.Exceptions
+﻿namespace Bazart.ErrorHandlingMiddleware.Exceptions
 {
     public class NotFoundException : Exception
     {

@@ -34,6 +34,7 @@
     <ProjectReference Include="..\Bazart.Controllers\Bazart.Controllers.csproj" />
     <ProjectReference Include="..\Bazart.DataAccess\Bazart.DataAccess.csproj" />
     <ProjectReference Include="..\Bazart.EmailService\Bazart.EmailService.csproj" />
+    <ProjectReference Include="..\ErrorHandlingMiddleware\Bazart.ErrorHandlingMiddleware.csproj" />
   </ItemGroup>
 
 </Project>

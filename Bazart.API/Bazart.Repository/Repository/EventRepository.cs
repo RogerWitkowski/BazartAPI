@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using AutoMapper;
 using Bazart.DataAccess.DataAccess;
+using Bazart.ErrorHandlingMiddleware.Exceptions;
 using Bazart.Models.Dto.EventDto;
 using Bazart.Models.Model;
 using Bazart.Repository.Repository.IRepository;
@@ -23,7 +24,7 @@ namespace Bazart.Repository.Repository
         {
             if (string.IsNullOrEmpty(userId))
             {
-                throw new Exception("User not found"); //!NotFound
+                throw new NotFoundException("User not found");
             }
             var events = await _dbContext
                 .Events
@@ -32,7 +33,7 @@ namespace Bazart.Repository.Repository
                 .FirstOrDefaultAsync(e => e.Id == eventId && e.CreatedById == userId);
             if (events is null)
             {
-                throw new Exception("User not found"); //!NotFound
+                throw new NotFoundException("User not found");
             }
 
             var eventDto = _mapper.Map<EventDto>(events);
@@ -52,7 +53,7 @@ namespace Bazart.Repository.Repository
 
             if (!eventsDto.Any())
             {
-                throw new Exception("User not found"); //!NotFound
+                throw new NotFoundException("User not found");
             }
             return eventsDto;
         }
@@ -64,7 +65,7 @@ namespace Bazart.Repository.Repository
                 .FirstOrDefaultAsync(u => u.Id == userId);
             if (user is null)
             {
-                throw new Exception("User not found"); //!NotFound
+                throw new NotFoundException("User not found");
             }
 
             var isCreated = _mapper.Map<Event>(createEventDto);
@@ -88,7 +89,7 @@ namespace Bazart.Repository.Repository
 
             if (eventToDelete == null)
             {
-                throw new Exception("Not found"); //!NotFound
+                throw new NotFoundException("Not found");
             }
 
             await Task.FromResult(_dbContext.Events.Remove(eventToDelete));
@@ -105,7 +106,7 @@ namespace Bazart.Repository.Repository
 
             if (eventToUpdate == null)
             {
-                throw new Exception("Not found"); //!NotFound
+                throw new NotFoundException("Not found");
             }
 
             eventToUpdate.Name = updateEventDto.Name;

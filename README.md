@@ -5,4 +5,4 @@ There is an urban legend about revealing secrets on GitHub.😬
 Unfortunately I did this😱 and had to delete my previous repository with a history of all commits😭🤦‍♂️
 This mistake gave me a great lesson on how to keep app secrets safe.💪
 I took a screenshot of the commit history which I will share with you below:
-(https://raw.githubusercontent.com/RogerWitkowski/BazartApi/Development/commitHistory.png)
+[<img src="👉">](https://raw.githubusercontent.com/RogerWitkowski/BazartApi/Development/commitHistory.png)

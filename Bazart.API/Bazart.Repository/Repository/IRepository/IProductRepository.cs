@@ -8,7 +8,7 @@ namespace Bazart.Repository.Repository.IRepository
     {
         public Task<ProductDto> GetProductByIsAsync(string userId, int productId);
 
-        public Task<IEnumerable> GetProductsByCategoryNameAsync(string userId, string categoryName);
+        public Task<IEnumerable<ProductDto>> GetProductsByCategoryNameAsync(string userId, string categoryName);
 
         public Task<string> CreateProductAsync(string userId, CreateProductDto createProductDto);
 

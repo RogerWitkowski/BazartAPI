@@ -45,7 +45,7 @@ namespace Bazart.Repository.Repository
             return productDto;
         }
 
-        public async Task<IEnumerable> GetProductsByCategoryNameAsync(string userId, string categoryName)
+        public async Task<IEnumerable<ProductDto>> GetProductsByCategoryNameAsync(string userId, string categoryName)
         {
             var products = await _dbContext
                 .Products

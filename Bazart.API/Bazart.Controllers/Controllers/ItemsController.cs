@@ -18,6 +18,13 @@ namespace Bazart.Controllers.Controllers
                 _itemsRepository = itemsRepository;
             }
 
+            [HttpGet("event/{eventId:int}")]
+            public async Task<ActionResult<EventDto>> GetEventById([FromRoute] int eventId)
+            {
+                var singleEvent = await _itemsRepository.GetEventByIdAsync(eventId);
+                return singleEvent;
+            }
+
             [HttpGet("all-products")]
             public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProduct()
             {

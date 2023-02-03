@@ -3,6 +3,7 @@ using AutoMapper;
 using Bazart.DataAccess.DataAccess;
 using Bazart.Models.Dto.EventDto;
 using Bazart.Models.Dto.ProductDto;
+using Bazart.Models.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bazart.Repository.Repository
@@ -16,6 +17,18 @@ namespace Bazart.Repository.Repository
         {
             _dbContext = dbContext;
             _mapper = mapper;
+        }
+
+        public async Task<EventDto> GetEventByIdAsync(int eventId)
+        {
+            var singleEvent = await _dbContext
+                .Events
+                .Include(ed => ed.EventDetails)
+                .Include(u => u.CreatedBy)
+                .FirstOrDefaultAsync(e => e.Id == eventId);
+
+            var singleEventDto = _mapper.Map<EventDto>(singleEvent);
+            return singleEventDto;
         }
 
         public async Task<IEnumerable> GetAllProductsAsync()

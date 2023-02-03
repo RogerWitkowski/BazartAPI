@@ -81,6 +81,10 @@ namespace Bazart.Repository.Repository
             var user = await _dbContext
                 .Users
                 .FirstOrDefaultAsync(u => u.Id == userId);
+            if (user is null)
+            {
+                throw new NotFoundException("Not found");
+            }
 
             var eventToDelete = await _dbContext
                 .Events

@@ -40,6 +40,7 @@ namespace Bazart.Repository.Repository
             var productsByCategory = await _dbContext
                 .Products
                 .Include(c => c.Category)
+                .Include(u => u.CreatedBy)
                 .Where(c => c.Category.Name.ToLower() == categoryName.ToLower())
                 .ToListAsync();
 

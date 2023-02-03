@@ -10,9 +10,9 @@
                 options.AddPolicy("FrontendClient", policy => policy
                     .AllowAnyMethod()
                     .AllowAnyHeader()
-                    //.WithOrigins(origins: allowedOrigin)
-                    //.AllowCredentials()
-                    .AllowAnyOrigin()
+                //.WithOrigins(origins: allowedOrigin)
+                //.AllowCredentials()
+                .AllowAnyOrigin()
                 );
             });
             return builder;

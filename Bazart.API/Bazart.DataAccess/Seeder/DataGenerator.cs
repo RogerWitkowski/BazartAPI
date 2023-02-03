@@ -63,7 +63,7 @@ namespace Bazart.DataAccess.Seeder
                 .RuleFor(ed => ed.Street, f => f.Address.StreetAddress())
                 .RuleFor(ed => ed.HouseOrFlatNumber, f => int.Parse(f.Address.BuildingNumber()))
                 .RuleFor(ed => ed.PostalCode, f => f.Address.ZipCode())
-                .RuleFor(ed => ed.ImageUrl, f => f.Image.PlaceImgUrl(640, 480, "category"));
+                .RuleFor(ed => ed.ImageUrl, f => f.Image.PlaceImgUrl(640, 480, "events"));
 
             var eventData = new Faker<Event>()
                 .RuleFor(e => e.Name, f => f.Lorem.Word())

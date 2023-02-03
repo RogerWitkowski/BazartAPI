@@ -1,8 +1,8 @@
 ﻿namespace Bazart.API.Configurations.Extensions.Add
 {
-    internal static class WebApplicationBuilderAddCorsPolicyExtension
+    public static class WebApplicationBuilderAddCorsPolicyExtension
     {
-        internal static WebApplicationBuilder AddCorsPolicy(this WebApplicationBuilder builder)
+        public static WebApplicationBuilder AddCorsPolicy(this WebApplicationBuilder builder)
         {
             var allowedOrigin = builder.Configuration.GetSection("AllowedOrigins:ReactFrontOrigin").Value;
             builder.Services.AddCors(options =>
@@ -10,8 +10,10 @@
                 options.AddPolicy("FrontendClient", policy => policy
                     .AllowAnyMethod()
                     .AllowAnyHeader()
-                    .WithOrigins(origins: allowedOrigin)
-                    .AllowCredentials());
+                    //.WithOrigins(origins: allowedOrigin)
+                    //.AllowCredentials()
+                    .AllowAnyOrigin()
+                );
             });
             return builder;
         }

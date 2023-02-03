@@ -1,5 +1,6 @@
 using Bazart.API.Configurations.Extensions.Add;
 using Bazart.API.Configurations.Extensions.Use;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);

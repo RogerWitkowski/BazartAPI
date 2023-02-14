@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bazart.DataAccess.Migrations
 {
     [DbContext(typeof(BazartDbContext))]
-    [Migration("20230126200712_initDb")]
+    [Migration("20230211121202_initDb")]
     partial class initDb
     {
         /// <inheritdoc />
@@ -231,6 +231,29 @@ namespace Bazart.DataAccess.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "8e09184d-776c-4cbc-b435-581cbdf0df23",
+                            ConcurrencyStamp = "2895fd74-487c-43d7-8cba-e4d6c4d0b875",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "b077b496-02d0-44e9-8d0f-facf81bd9106",
+                            ConcurrencyStamp = "33eb5c83-bd71-4c9a-a687-aa92dcec38c8",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = "aa11f67f-e50f-4cb6-8fb7-9a7024d0f21c",
+                            ConcurrencyStamp = "21f991fb-1014-4da6-9383-23a48a954d35",
+                            Name = "Artist",
+                            NormalizedName = "ARTIST"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -422,7 +445,7 @@ namespace Bazart.DataAccess.Migrations
 
                     b.Property<DateTime?>("DateOfBirth")
                         .IsRequired()
-                        .HasColumnType("datetime2");
+                        .HasColumnType("Date");
 
                     b.Property<string>("FirstName")
                         .IsRequired()

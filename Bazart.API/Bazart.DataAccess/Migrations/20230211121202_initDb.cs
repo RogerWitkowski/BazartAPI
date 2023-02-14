@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Bazart.DataAccess.Migrations
 {
     /// <inheritdoc />
@@ -65,7 +67,7 @@ namespace Bazart.DataAccess.Migrations
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
-                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DateOfBirth = table.Column<DateTime>(type: "Date", nullable: true),
                     Nationality = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AddressId = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -273,6 +275,16 @@ namespace Bazart.DataAccess.Migrations
                         principalTable: "Events",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "8e09184d-776c-4cbc-b435-581cbdf0df23", "2895fd74-487c-43d7-8cba-e4d6c4d0b875", "Admin", "ADMIN" },
+                    { "aa11f67f-e50f-4cb6-8fb7-9a7024d0f21c", "21f991fb-1014-4da6-9383-23a48a954d35", "Artist", "ARTIST" },
+                    { "b077b496-02d0-44e9-8d0f-facf81bd9106", "33eb5c83-bd71-4c9a-a687-aa92dcec38c8", "Customer", "CUSTOMER" }
                 });
 
             migrationBuilder.CreateIndex(

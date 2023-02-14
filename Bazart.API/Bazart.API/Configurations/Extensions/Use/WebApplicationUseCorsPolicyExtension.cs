@@ -4,7 +4,7 @@
     {
         public static WebApplication UseCorsPolicy(this WebApplication app)
         {
-            app.UseCors(policyName: "FrontendClient");
+            app.UseCors();
 
             return app;
         }

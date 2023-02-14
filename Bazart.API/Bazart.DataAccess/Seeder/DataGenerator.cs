@@ -67,7 +67,7 @@ namespace Bazart.DataAccess.Seeder
 
             var eventData = new Faker<Event>()
                 .RuleFor(e => e.Name, f => f.Lorem.Word())
-                .RuleFor(e => e.Description, f => f.Lorem.Sentence(3))
+                .RuleFor(e => e.Description, f => f.Lorem.Sentence(2))
                 .RuleFor(e => e.EventDetails, f => eventDetailData.Generate());
 
             var userData = new Faker<User>()

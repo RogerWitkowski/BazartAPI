@@ -3,6 +3,7 @@ using Bazart.Models.Dto.UserDto;
 using Microsoft.AspNetCore.Mvc;
 using Bazart.EmailService.EmailService.IEmailService;
 using Bazart.Repository.Repository.IRepository;
+using Bazart.ErrorHandlingMiddleware.Exceptions;
 
 namespace Bazart.Controllers.Controllers
 {
@@ -39,6 +40,10 @@ namespace Bazart.Controllers.Controllers
         public async Task<ActionResult> RegisterUser([FromBody] RegisterUserDto registerUserDto)
         {
             var newUser = await _accountRepository.RegisterUserAsync(registerUserDto);
+            if (newUser.Value == null)
+            {
+                throw new BadRequestException("NOT GOOD");
+            }
 
             var result = await GenerateConfirmation(newUser.Value.Token, newUser.Value.UserId);
 
@@ -69,7 +74,8 @@ namespace Bazart.Controllers.Controllers
                 return Ok("Please request an email verification link.");
             }
 
-            return Ok("Successfully logged in!");
+            var jwtToken = await _accountRepository.CreateJwtToken(loginUserDto);
+            return Ok($"Successfully logged in! Token: {jwtToken}");
         }
 
         [HttpGet("confirm-email-address")]
@@ -79,5 +85,8 @@ namespace Bazart.Controllers.Controllers
 
             return result;
         }
+
+        //[HttpGet("AuthApp")]
+        //public class Task<ActionResult> private AuthentcatorWithMFASetup()
     }
 }

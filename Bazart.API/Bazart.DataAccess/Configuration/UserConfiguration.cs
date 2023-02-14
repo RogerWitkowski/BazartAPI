@@ -21,6 +21,7 @@ namespace Bazart.DataAccess.Configuration
                 .IsRequired();
             entityTypeBuilder
                 .Property(u => u.DateOfBirth)
+                .HasColumnType("Date")
                 .IsRequired();
             entityTypeBuilder
                 .Property(u => u.Nationality)

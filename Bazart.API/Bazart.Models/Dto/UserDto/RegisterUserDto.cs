@@ -27,6 +27,7 @@ namespace Bazart.Models.Dto.UserDto
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
 
         public string Nationality { get; set; }

@@ -13,5 +13,9 @@ namespace Bazart.Repository.Repository.IRepository
         public Task<ActionResult> ConfirmEmailAddressAsync(string userId, string token);
 
         public Task<string> IsUserExist(string userId);
+
+        public Task<string> CreateJwtToken(LoginUserDto loginUserDto);
+
+        public Task AuthWithMFA();
     }
 }

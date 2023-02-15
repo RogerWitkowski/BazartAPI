@@ -3,7 +3,6 @@ using AutoMapper;
 using Bazart.DataAccess.DataAccess;
 using Bazart.Models.Dto.EventDto;
 using Bazart.Models.Dto.ProductDto;
-using Bazart.Models.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bazart.Repository.Repository

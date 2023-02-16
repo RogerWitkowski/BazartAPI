@@ -114,7 +114,7 @@ namespace Bazart.Repository.Repository
         {
             //User user = await _userManager.GetUserAsync()
             //_userManager.GetAuthenticatorKeyAsync()
-            throw new Exception("fdfs");
+            throw new Exception("");
         }
 
         public async Task<string> CreateJwtToken(LoginUserDto loginUserDto)

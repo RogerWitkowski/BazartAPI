@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.13" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.21.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AuthenticationSettings\Bazart.AuthenticationSettings.csproj" />
     <ProjectReference Include="..\Bazart.DataAccess\Bazart.DataAccess.csproj" />
     <ProjectReference Include="..\Bazart.EmailService\Bazart.EmailService.csproj" />
     <ProjectReference Include="..\Bazart.Models\Bazart.Models.csproj" />

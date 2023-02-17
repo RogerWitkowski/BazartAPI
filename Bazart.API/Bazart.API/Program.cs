@@ -1,6 +1,5 @@
 using Bazart.API.Configurations.Extensions.Add;
 using Bazart.API.Configurations.Extensions.Use;
-using Microsoft.AspNetCore.Cors.Infrastructure;
 using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +12,7 @@ builder.Host.UseNLog();
 builder.Services.AddControllersCollection();
 
 //!dbContext added
-builder.AddDbContext();
+builder.AddBazartDbContext();
 
 //!globalErrorHandlers added
 builder.AddGlobalErrorHandlers();
@@ -26,6 +25,9 @@ builder.AddDataGenerator();
 
 //!autoMapper added
 builder.AddAutoMapper();
+
+//!jwtToken authentication added
+builder.AddAuthenticationSettings();
 
 //!userIdentity added
 builder.AddUserIdentity();
@@ -47,12 +49,11 @@ builder.AddCorsPolicy();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
+//!CORS policy used
+app.UseCorsPolicy();
 
 //!globalErrorMiddleware used
 app.UseGlobalErrorHandlersMiddleware();
-
-//!CORS policy used
-app.UseCorsPolicy();
 
 //!dataGenerator used
 await app.UseDataGenerator();
@@ -63,7 +64,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
 app.UseHttpsRedirection();
+app.UseRouting();
 
 app.UseAuthorization();
 

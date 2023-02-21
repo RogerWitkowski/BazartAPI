@@ -11,6 +11,7 @@ namespace Bazart.Models.Dto.ProductDto
 {
     public class CreateProductDto
     {
+        //TODO: add inheritance by base class, implement validator for create product class
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }

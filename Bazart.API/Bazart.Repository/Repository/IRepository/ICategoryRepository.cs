@@ -4,8 +4,8 @@ namespace Bazart.Repository.Repository.IRepository
 {
     public interface ICategoryRepository
     {
-        public Task<IEnumerable> GetAllCategoriesAsync();
+        public Task<IQueryable> GetAllCategoriesAsync();
 
-        public Task<IEnumerable> GetCategoriesWithProductsByCategoryNameAsync(string categoryName);
+        public Task<IQueryable> GetCategoriesWithProductsByCategoryNameAsync(string categoryName);
     }
 }

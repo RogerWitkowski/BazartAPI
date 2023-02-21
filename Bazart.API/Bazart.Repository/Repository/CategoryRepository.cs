@@ -19,7 +19,7 @@ namespace Bazart.Repository.Repository
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable> GetAllCategoriesAsync()
+        public async Task<IQueryable> GetAllCategoriesAsync()
         {
             var categories = await _dbContext
                 .Categories
@@ -30,12 +30,12 @@ namespace Bazart.Repository.Repository
                 .Take(6)
                 .OrderBy(c => c.Name)).Result;
 
-            var categoriesByUniqueNameDto = _mapper.Map<List<CategoryDto>>(categoriesByUniqueName);
+            var categoriesByUniqueNameDto = _mapper.Map<List<CategoryDto>>(categoriesByUniqueName).AsQueryable();
 
             return categoriesByUniqueNameDto;
         }
 
-        public async Task<IEnumerable> GetCategoriesWithProductsByCategoryNameAsync(string categoryName)
+        public async Task<IQueryable> GetCategoriesWithProductsByCategoryNameAsync(string categoryName)
         {
             var productsByCategory = await _dbContext
                 .Products
@@ -44,7 +44,7 @@ namespace Bazart.Repository.Repository
                 .Where(c => c.Category.Name.ToLower() == categoryName.ToLower())
                 .ToListAsync();
 
-            var productsDtoByCategory = _mapper.Map<List<ProductDto>>(productsByCategory);
+            var productsDtoByCategory = _mapper.Map<List<ProductDto>>(productsByCategory).AsQueryable();
 
             return productsDtoByCategory;
         }
